@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VitaliC_Android.App", "VitaliC_Android.App\VitaliC_Android.App.csproj", "{44A24605-E6DE-41DC-B0B8-D70AAE2F159C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VitaliC_Android.Core", "VitaliC_Android.Core\VitaliC_Android.Core.csproj", "{99A46147-AF05-45D5-97A4-38520A053D96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{44A24605-E6DE-41DC-B0B8-D70AAE2F159C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44A24605-E6DE-41DC-B0B8-D70AAE2F159C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{44A24605-E6DE-41DC-B0B8-D70AAE2F159C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{99A46147-AF05-45D5-97A4-38520A053D96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A46147-AF05-45D5-97A4-38520A053D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A46147-AF05-45D5-97A4-38520A053D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A46147-AF05-45D5-97A4-38520A053D96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
