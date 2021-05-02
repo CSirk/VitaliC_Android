@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using Newtonsoft.Json;
 using VitaliC_Android.Core.Models;
 
 namespace VitaliC_Android.App
@@ -27,61 +28,9 @@ namespace VitaliC_Android.App
         {
             base.OnCreate(savedInstanceState);
 
-            progressRecords = new List<NutrientProgressRecord>()
-            {
-                new NutrientProgressRecord
-                {
-                    NutrientName = "Calories",
-                    DisplayName = "Calories",
-                    GoalAmount = 2000,
-                    RemainingAmount = 1500,
-                    ProgressAmount = 500,
-                    Measurement = "Calorie",
-                    MeasurementAbbreviation = "cal",
-                    GoalIsHigh = false,
-                    Alias = "",
-                    DisplayOrder = 1
-                },
-                new NutrientProgressRecord
-                {
-                    NutrientName = "Fat",
-                    DisplayName = "Fat",
-                    GoalAmount = 30,
-                    RemainingAmount = 20,
-                    ProgressAmount = 10,
-                    Measurement = "Grams",
-                    MeasurementAbbreviation = "g",
-                    GoalIsHigh = false,
-                    Alias = "",
-                    DisplayOrder = 2
-                },
-                new NutrientProgressRecord
-                {
-                    NutrientName = "Carbohydrates",
-                    DisplayName = "Carbs",
-                    GoalAmount = 140,
-                    RemainingAmount = 0,
-                    ProgressAmount = 140,
-                    Measurement = "Grams",
-                    MeasurementAbbreviation = "g",
-                    GoalIsHigh = false,
-                    Alias = "",
-                    DisplayOrder = 3
-                },
-                new NutrientProgressRecord
-                {
-                    NutrientName = "Protein",
-                    DisplayName = "Protein",
-                    GoalAmount = 190,
-                    RemainingAmount = 0,
-                    ProgressAmount = 190,
-                    Measurement = "Grams",
-                    MeasurementAbbreviation = "g",
-                    GoalIsHigh = true,
-                    Alias = "",
-                    DisplayOrder = 4
-                }
-            };
+            var userNutritionInfo = JsonConvert.DeserializeObject<UserNutritionInfo>(Intent.GetStringExtra("userNutritionInfo"));
+
+            progressRecords = userNutritionInfo.NutrientProgressRecords;
 
             SetContentView(Resource.Layout.progress_tracker);
 
@@ -97,8 +46,6 @@ namespace VitaliC_Android.App
 
             recylcerView.SetAdapter(adapter);
 
-            // Create your application here
-            
         }
     }
 

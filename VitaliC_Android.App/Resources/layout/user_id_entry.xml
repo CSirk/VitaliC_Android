@@ -5,23 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="UserId"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Unknown User, Enter UserId"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/userIdTextView" />
-    <TextView
-        android:text="Age"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:gravity="center"
+        android:id="@+id/userIdEntryDirectionTextView" />
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:id="@+id/userAgeTextView" />
+        android:id="@+id/userIdTextBox" />
     <Button
-        android:text="Log Out"
+        android:text="Save UserId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/logOutButton" />
+        android:id="@+id/submitUserIdButton" />
 
 </LinearLayout>

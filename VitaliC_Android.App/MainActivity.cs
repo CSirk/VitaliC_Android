@@ -7,6 +7,8 @@ using Android.Content;
 using Newtonsoft.Json;
 using VitaliC_Android.Core.Models;
 using System.IO;
+using VitaliC_Android.Core.Helpers;
+using Xamarin.Essentials;
 
 namespace VitaliC_Android.App
 {
@@ -14,31 +16,55 @@ namespace VitaliC_Android.App
     public class MainActivity : ListActivity
     {
         private string[] _listOfPageNames = new string[] { "User Profile", "Nutrition Tracker", "Test" };
-        protected override void OnCreate(Bundle bundle)
+        protected async override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            ListAdapter = new ArrayAdapter<string>(this, Resource.Layout.activity_main_list_item, _listOfPageNames);
+            var backingFile = System.IO.Path.Combine(Xamarin.Essentials.FileSystem.AppDataDirectory, "UserId.txt");
 
-            ListView.TextFilterEnabled = true;
-
-            ListView.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs args)
+            //Check for userId file, and if it doesnt exist show the entry view
+            if (!File.Exists(backingFile))
             {
-                switch(args.Position)
+                var userIdEntryIntent = new Intent(this, typeof(UserIdEntryActivity));
+                userIdEntryIntent.PutExtra("backingFile", backingFile);
+                StartActivity(userIdEntryIntent);
+            }
+            else
+            {
+                var userId = "";
+                using (var reader = new StreamReader(System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "UserId.txt")))
                 {
-                    case 0:
-                        var fitnessProfileIntent = new Intent(this, typeof(UserFitnessProfileActivity));
-                        fitnessProfileIntent.PutExtra("userFitnessProfile", JsonConvert.SerializeObject(new UserFitnessProfile()));
-                        StartActivity(fitnessProfileIntent);
-                        break;
-                    case 1:
-                        var progressTrackerIntent = new Intent(this, typeof(ProgressTrackerActivity));
-                        progressTrackerIntent.PutExtra("progressTrackerIntent", JsonConvert.SerializeObject(new UserFitnessProfile()));
-                        StartActivity(progressTrackerIntent);
-                        break;
+                    userId = reader.ReadToEnd();
                 }
-                //Toast.MakeText(Application, ((TextView)args.View).Text, ToastLength.Short).Show();
-            };
+
+                var httpHelper = new HttpHelper<UserNutritionInfo>();
+                var userNutritionInfo = await httpHelper.GetAsync
+                    ($"https://streetsofsmashvilleapi.azurewebsites.net/api/NutritionTrackerApp/GetNutritionInfoByUserId?userId={userId}&today=true");
+
+
+                ListAdapter = new ArrayAdapter<string>(this, Resource.Layout.activity_main_list_item, _listOfPageNames);
+
+                ListView.TextFilterEnabled = true;
+
+                ListView.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs args)
+                {
+                    switch (args.Position)
+                    {
+                        case 0:
+                            var fitnessProfileIntent = new Intent(this, typeof(UserFitnessProfileActivity));
+                            fitnessProfileIntent.PutExtra("userNutritionInfo", JsonConvert.SerializeObject(userNutritionInfo));
+                            fitnessProfileIntent.PutExtra("backingFile", backingFile);
+                            StartActivity(fitnessProfileIntent);
+                            break;
+                        case 1:
+                            var progressTrackerIntent = new Intent(this, typeof(ProgressTrackerActivity));
+                            progressTrackerIntent.PutExtra("userNutritionInfo", JsonConvert.SerializeObject(userNutritionInfo));
+                            StartActivity(progressTrackerIntent);
+                            break;
+                    }
+                    //Toast.MakeText(Application, ((TextView)args.View).Text, ToastLength.Short).Show();
+                };
+            }
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
