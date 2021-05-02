@@ -16,7 +16,7 @@ namespace VitaliC_Android.App
     [Activity(Label = "UsernameEntryActivity")]
     public class UserIdEntryActivity : Activity
     {
-        protected async override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.user_id_entry);
