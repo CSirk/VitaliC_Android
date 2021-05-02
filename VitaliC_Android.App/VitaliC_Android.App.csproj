@@ -61,6 +61,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NutritionRecordEntryActivity.cs" />
     <Compile Include="ProgressTrackerActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -139,6 +140,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\user_id_entry.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\nutrition_record_entry.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\nutrition_record_nutrient_card.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

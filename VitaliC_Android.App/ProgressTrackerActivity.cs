@@ -16,7 +16,7 @@ using VitaliC_Android.Core.Models;
 
 namespace VitaliC_Android.App
 {
-    [Activity(Label = "Activity1")]
+    [Activity(Label = "ProgressTrackerActivity")]
     public class ProgressTrackerActivity : Activity
     {
         RecyclerView recylcerView;

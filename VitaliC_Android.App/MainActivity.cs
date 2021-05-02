@@ -15,7 +15,7 @@ namespace VitaliC_Android.App
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : ListActivity
     {
-        private string[] _listOfPageNames = new string[] { "User Profile", "Nutrition Tracker", "Test" };
+        private string[] _listOfPageNames = new string[] { "User Profile", "View Progress", "Nutrition Record Entry" };
         protected async override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -60,6 +60,11 @@ namespace VitaliC_Android.App
                             var progressTrackerIntent = new Intent(this, typeof(ProgressTrackerActivity));
                             progressTrackerIntent.PutExtra("userNutritionInfo", JsonConvert.SerializeObject(userNutritionInfo));
                             StartActivity(progressTrackerIntent);
+                            break;
+                        case 2:
+                            var nutritionRecordEntryIntent = new Intent(this, typeof(NutritionRecordEntryActivity));
+                            nutritionRecordEntryIntent.PutExtra("userNutritionInfo", JsonConvert.SerializeObject(userNutritionInfo));
+                            StartActivity(nutritionRecordEntryIntent);
                             break;
                     }
                     //Toast.MakeText(Application, ((TextView)args.View).Text, ToastLength.Short).Show();
