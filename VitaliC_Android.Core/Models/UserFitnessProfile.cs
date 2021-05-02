@@ -14,5 +14,7 @@ namespace VitaliC_Android.Core.Models
         public string TrackedStreakStart { get; set; }
         public int DaysTracked { get; set; }
         public int DaysTrackedStreak { get; set; }
+        public List<UserAwardInfo> AwardInfo { get; set; } = new List<UserAwardInfo>();
+
     }
 }

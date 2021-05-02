@@ -18,7 +18,7 @@ namespace VitaliC_Android.App
         {
             base.OnCreate(bundle);
 
-            ListAdapter = new ArrayAdapter<string>(this, Resource.Layout.list_item, _listOfPageNames);
+            ListAdapter = new ArrayAdapter<string>(this, Resource.Layout.activity_main_list_item, _listOfPageNames);
 
             ListView.TextFilterEnabled = true;
 
@@ -32,9 +32,9 @@ namespace VitaliC_Android.App
                         StartActivity(fitnessProfileIntent);
                         break;
                     case 1:
-                        var nutritionTrackerIntent = new Intent(this, typeof(NutritionTrackerActivity));
-                        nutritionTrackerIntent.PutExtra("nutritionTrackerIntent", JsonConvert.SerializeObject(new UserFitnessProfile()));
-                        StartActivity(nutritionTrackerIntent);
+                        var progressTrackerIntent = new Intent(this, typeof(ProgressTrackerActivity));
+                        progressTrackerIntent.PutExtra("progressTrackerIntent", JsonConvert.SerializeObject(new UserFitnessProfile()));
+                        StartActivity(progressTrackerIntent);
                         break;
                 }
                 //Toast.MakeText(Application, ((TextView)args.View).Text, ToastLength.Short).Show();

@@ -20,7 +20,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#333333"
                 android:text="Caption"
-                android:id="@+id/textView1"
+                android:id="@+id/nutrientName"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="4dp" />
             <TextView
@@ -29,7 +29,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#333333"
                 android:text="Caption"
-                android:id="@+id/textView2"
+                android:id="@+id/nutrientGoalAmount"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="4dp" />
             <TextView
@@ -38,7 +38,16 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#333333"
                 android:text="Caption"
-                android:id="@+id/textView3"
+                android:id="@+id/nutrientProgressAmount"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="4dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#333333"
+                android:text="Caption"
+                android:id="@+id/nutrientRemainingAmount"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="4dp" />
             <ProgressBar
