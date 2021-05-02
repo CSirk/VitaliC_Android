@@ -18,6 +18,7 @@ namespace VitaliC_Android.App
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.user_fitness_profile);
 
             // Create your application here
         }
