@@ -114,12 +114,12 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\user_fitness_profile.xml">
+    <AndroidResource Include="Resources\layout\activity_user_fitness_profile.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_main_list_item.xml">
+    <AndroidResource Include="Resources\layout\main_list_item.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -130,7 +130,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\progress_tracker.xml">
+    <AndroidResource Include="Resources\layout\activity_progress_tracker.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -140,12 +140,12 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\user_id_entry.xml">
+    <AndroidResource Include="Resources\layout\activity_user_id_entry.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\nutrition_record_entry.xml">
+    <AndroidResource Include="Resources\layout\activity_nutrition_record_entry.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -155,7 +155,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\nutrition_goal.xml">
+    <AndroidResource Include="Resources\layout\activity_nutrition_goal.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

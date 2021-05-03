@@ -19,7 +19,7 @@ namespace VitaliC_Android.App
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.user_id_entry);
+            SetContentView(Resource.Layout.activity_user_id_entry);
             var backingFile = Intent.GetStringExtra("backingFile");
 
             EditText usernameTextBox = FindViewById<EditText>(Resource.Id.userIdTextBox);

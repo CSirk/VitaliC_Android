@@ -21,7 +21,7 @@ namespace VitaliC_Android.App
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.user_fitness_profile);
+            SetContentView(Resource.Layout.activity_user_fitness_profile);
 
             var backingFile = Intent.GetStringExtra("backingFile");
             var userNutritionInfo = JsonConvert.DeserializeObject<UserNutritionInfo>(Intent.GetStringExtra("userNutritionInfo"));

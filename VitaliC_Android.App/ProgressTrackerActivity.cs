@@ -32,7 +32,7 @@ namespace VitaliC_Android.App
 
             progressRecords = userNutritionInfo.NutrientProgressRecords;
 
-            SetContentView(Resource.Layout.progress_tracker);
+            SetContentView(Resource.Layout.activity_progress_tracker);
 
             recylcerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
 

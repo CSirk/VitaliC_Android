@@ -48,7 +48,7 @@ namespace VitaliC_Android.App
                 progressBar.Visibility = Android.Views.ViewStates.Invisible;
 
                 var listView = FindViewById<ListView>(Resource.Id.menuListView);
-                listView.Adapter = new ArrayAdapter<string>(this, Resource.Layout.activity_main_list_item, _listOfPageNames);
+                listView.Adapter = new ArrayAdapter<string>(this, Resource.Layout.main_list_item, _listOfPageNames);
                 listView.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs args)
                 {
                     switch (args.Position)

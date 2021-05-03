@@ -31,7 +31,7 @@ namespace VitaliC_Android.App
 
             _nutrients = userNutritionInfo.BaseNutrients;
 
-            SetContentView(Resource.Layout.nutrition_record_entry);
+            SetContentView(Resource.Layout.activity_nutrition_record_entry);
 
             recylcerView = FindViewById<RecyclerView>(Resource.Id.nutritionRecordEntryRecyclerView);
 

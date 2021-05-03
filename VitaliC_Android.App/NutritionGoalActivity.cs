@@ -31,7 +31,7 @@ namespace VitaliC_Android.App
 
             _nutritionGoal = userNutritionInfo.UserDailyNutritionGoal;
 
-            SetContentView(Resource.Layout.nutrition_goal);
+            SetContentView(Resource.Layout.activity_nutrition_goal);
 
             recylcerView = FindViewById<RecyclerView>(Resource.Id.nutritionGoalRecyclerView);
 
